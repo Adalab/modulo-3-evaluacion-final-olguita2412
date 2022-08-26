@@ -1,24 +1,24 @@
 import CharacterItem from './CharacterItem';
 
 function CharacterList (props) {
-    const list = props.data
-    .filter((user) => {
-        if(props.filterCountry.length !== 0){
-            return (props.filterCountry.includes(user.country));
+    const list = props.dataCharacters
+    .filter((character) => {
+        if(props.filterHouse !== 'Todas'){
+            return (character.house === props.filterHouse);
         } return true;
     })
-    .filter ((user) => {
+    .filter ((character) => {
         if (props.filterGender !== "all"){
-            return (user.gender === props.filterGender);
+            return (character.gender === props.filterGender);
         } return true;
        
     })
-    .filter((user) => {
-        return (user.name.toLowerCase().includes(props.filterName.toLowerCase()));
+    .filter((character) => {
+        return (character.name.toLowerCase().includes(props.filterName.toLowerCase()));
     })
-    .map((user) => {
+    .map((character, index) => {
         return (
-            <CharacterItem data={user} key={user.id}/>
+            <CharacterItem dataCharacters={character} key={index}/>
         )
     })
     

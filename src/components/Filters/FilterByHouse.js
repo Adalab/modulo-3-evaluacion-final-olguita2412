@@ -1,28 +1,30 @@
 function FilterByHouse (props) {
     
-    const handleFilterCountry = (ev) => {
-        props.handleFilterByCountry(ev.target.value);
+    const handleFilterHouse = (ev) => {
+        ev.preventDefault();
+        props.handleFilterByHouse(ev.target.value);
     }
     
-    const listCountries = props.countries
-    .map((country, index)=> {
+    const listHouses = props.houses
+    .map((house, index)=> {
+        if (house === ''){
+            house = 'Todas';
+        }
         
       return (
            <> 
-           <li key={index}>
-            <label className="display-block" htmlFor={country}>
-            <input type="checkbox" name={country} id={country} value={country} onChange={handleFilterCountry} />{country}</label> 
-           </li>
+           <option value={house} key={index}>{house} </option>
             </>)
        
       });
     
     return (
         <>
-            <label class="form__label display-block" htmlFor="country">Filtra por país:</label>
-            <ul className="country">
-            {listCountries}
-            </ul>
+         <label htmlFor="filterGender display-block">Filtra por casa</label>
+            <select className="form__input-text" name="gender" id="gender" onChange={handleFilterHouse} value={props.filterHouse}>
+                {listHouses}
+            </select>
+
         </>
     )
 };

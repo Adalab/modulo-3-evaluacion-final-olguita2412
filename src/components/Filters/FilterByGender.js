@@ -1,6 +1,7 @@
 function FilterByGender (props) {
     
     const handleFilterByGender = (ev) => {
+        ev.preventDefault();
         props.handleFilterByGender(ev.target.value);
     }
     
@@ -11,7 +12,6 @@ function FilterByGender (props) {
                 <option value="all" selected>Todos</option>
                 <option value="female">Mujer</option>
                 <option value="male">Hombre </option>
-                <option value="no-binary">No binario</option>
             </select>
             
         </>
