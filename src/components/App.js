@@ -63,13 +63,14 @@ function App() {
   <div className='page'>
     
     <Header />
+    <main className='main'>
     <Routes>
         <Route path="/" element={<> <Filter dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} houses={houses} />
-    <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} /></>
+        <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} /></>
         } />
         <Route path='/characterdetail/:id' element={<CharacterDetails data={characterFound} species={species} />} />
-      </Routes>
-   
+    </Routes>
+    </main>
     <Footer />
     <MouseParticles g={1} color="random" cull="col,image-wrapper"/>
 

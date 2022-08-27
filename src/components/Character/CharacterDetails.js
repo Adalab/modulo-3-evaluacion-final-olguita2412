@@ -1,34 +1,47 @@
 import species from '../../services/species';
-import {emojify} from 'react-emojione';
+import '../../styles/layout/characterDetails.scss';
 
 function CharacterDetails(props) {
-  
-  if (props.data.gender === 'female'){
-    props.data.gender = 'Mujer';
-    props.data.alive = props.data.alive ? 'Viva' : 'Muerta';
+  const iconStatus = () => {
+    if(props.data.alive) {
+        return <i className="fa-solid fa-heart-pulse icon"></i>;
+    } else {
+        return <i className="fa-solid fa-heart-circle-xmark icon"></i>;
+    }
 
-   
-    
+}
+
+  if (props.data.gender === 'female'){
+    props.data.alive = props.data.alive ? 'Viva' : 'Muerta';
   }else if(props.data.gender === 'male'){
-    props.data.gender = 'Hombre';
-    props.data.alive = props.data.alive ? 'Vivo' : 'Muerto';
-   
-    
+    props.data.alive = props.data.alive ? 'Vivo' : 'Muerto'; 
   }
+
   
-  console.log(species.icon(props.data.species));
+  const gender = props.data.gender === 'female' ? 'Mujer' : 'Hombre';
+
+  const alternate_names = props.data.alternateNames.length !== 0 ? `Nombres alternativos: ${props.data.alternateNames}` : '';
+  
+console.log(props.data.alternateNames);
   
   return (
-      <section className="card">
-          <img className="card__img" src={props.data.photo} alt={`Foto de ${props.data.name}`} title={`Foto de ${props.data.name}`} />
-          <h2 className="card__title">{props.data.name}</h2>
-            <p className="card__description">Estatus: {props.data.alive} </p>
-            <p className="card__description">Especie: {species.specie(props.data.species)} {species.icon(props.data.species)}</p>
-            <p className="card__description">Género: {props.data.gender}</p>
-            <p className="card__description">Casa: {props.data.house}</p>
-            <p className="card__description">Nombres alternativos: {props.data.alternate_names}</p>
-            <p className="card__description">Ancestros: {props.data.ancestry}</p>
+      <div className='characterDetails'>
+      <section className="cardDetails">
+          <img className="cardDetails__img" src={props.data.photo} alt={`Foto de ${props.data.name}`} title={`Foto de ${props.data.name}`} />
+          <div className='cardDetails__texts'>
+            <h2 className="cardDetails__texts--title">{props.data.name}</h2>
+            <p className="cardDetails__texts--description">Estatus: {props.data.alive} - {iconStatus}</p>
+            <p className="cardDetails__texts--description">Especie: {species.specie(props.data.species)} {species.icon(props.data.species)}</p>
+            <p className="cardDetails__texts--description">Género: {gender}</p>
+            <p className="cardDetails__texts--description">Casa: {props.data.house}</p>
+            <p className="cardDetails__texts--description">Ancestros: {props.data.ancestry}</p>
+            <p className="cardDetails__texts--description">{alternate_names}</p>
+            
+            </div>
+            <div className={'cardDetails__house '+ props.data.house.toLowerCase()}></div>
       </section>
+      
+      </div>
     );
   }
   export default CharacterDetails;

@@ -1,0 +1,49 @@
+.characterDetails {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    background-image: url('');
+}
+.cardDetails {
+    width: 650px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    border: 2px rgb(238, 206, 1) solid;
+    padding: 5px;
+    &__img {
+        border: solid 2px white;
+        width: 150px;
+    }
+    &__texts {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        gap: 15px;
+        &--title {
+            font-size: 4rem;
+            font-family: 'harry';
+        }
+        &--description {
+            font-size: 1.7rem;
+        }
+    }
+    &__house {
+        width: 150px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+.icon {
+    background-color: white;
+}
+
+
+.gryffindor {
+    background-image: url('../../images/gryffindor.png');
+}

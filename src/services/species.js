@@ -3,55 +3,55 @@ import {emojify} from 'react-emojione';
 
 const iconSpecies = (specie) => {
     if (specie === 'human'){
-      return emojify(' 🧑');
+      return emojify('🧑');
     }
     if (specie === "half-giant"){
-        return emojify(' 🧑x2/🧑');
+        return emojify('🧑x2/🧑');
     }
     if (specie ==="werewolf"){
-        return emojify('🐺 ');
+        return emojify('🐺');
     }
     if (specie === "cat"){
-        return emojify('🐱 ');
+        return emojify('🐱');
     }
     if (specie === "goblin"){
-        return emojify('🧙🏼‍♂️ ');
+        return emojify('🧙🏼‍♂️');
     }
     if (specie ==="owl"){
-        return emojify('🦉 ');
+        return emojify('🦉');
     }
     if (specie ==="ghost"){
-        return emojify('👻 ');
+        return emojify('👻');
     }
     if (specie ==="poltergeist"){
-        return emojify('👽 ');
+        return emojify('👽');
     }
     if (specie ==="three-headed dog"){
-        return emojify('🐶 ');
+        return emojify('🐶');
     }
     if (specie ==="dragon"){
-        return emojify('🐉 ');
+        return emojify('🐉');
     }
     if (specie ==="centaur"){
-        return emojify('🐐 ');
+        return emojify('🐐');
     }
     if (specie ==="house-elf"){
-        return emojify('🧝🏼‍♂️ ');
+        return emojify('🧝🏼‍♂️');
     }
     if (specie ==="acromantula"){
-        return emojify('🕷 ');
+        return emojify('🕷');
     }
     if (specie ==="hippogriff"){
-        return emojify('🦄 ');
+        return emojify('🦄');
     }
     if (specie ==="giant"){
-        return emojify(' 🧑x2');
+        return emojify('🧑x2');
     }
     if (specie ==="vampire"){
-        return emojify(' 🧛🏼‍♂️ ');
+        return emojify('🧛🏼‍♂️');
     }
     if (specie ==="half-human"){
-        return emojify('🧙‍♂️/ 🧑');
+        return emojify('🧙‍♂️/🧑');
     }
   }
 
@@ -116,5 +116,4 @@ const species = (specie) => {
     icon: iconSpecies,
   };
   
-  // Exportamos el objeto para que pueda ser usado desde App
   export default objectToExport;
