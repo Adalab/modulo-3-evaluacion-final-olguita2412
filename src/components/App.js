@@ -8,6 +8,9 @@ import Footer from './Footer';
 import getDataApi from '../services/dataAPI';
 import ls from '../services/localStoraged';
 import photoDefault from '../images/photoDefault.jpeg';
+import React from "react";
+
+import MouseParticles from "react-mouse-particles";
 
 
 function App() {
@@ -47,6 +50,12 @@ function App() {
   
   return (
   <div>
+    <MouseParticles
+          g={3}
+          color="random"
+          cull="MuiSvgIcon-root,MuiButton-root"
+          level={9}
+        />
     <Header />
     <Filter dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} houses={houses} />
     <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} />

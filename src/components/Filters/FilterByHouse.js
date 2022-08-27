@@ -20,8 +20,8 @@ function FilterByHouse (props) {
     
     return (
         <>
-         <label htmlFor="filterGender display-block">Filtra por casa</label>
-            <select className="form__input-text" name="gender" id="gender" onChange={handleFilterHouse} value={props.filterHouse}>
+         <label htmlFor="filterHouse display-block">Filtra por casa</label>
+            <select className="form__input-text" name={props.filterHouse} id={props.filterHouse} onChange={handleFilterHouse} value={props.filterHouse}>
                 {listHouses}
             </select>
 
