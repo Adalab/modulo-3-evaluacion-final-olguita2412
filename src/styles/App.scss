@@ -1,8 +1,6 @@
-* {
-    font-family: 'Roboto', sans-serif;
-    color: #54585b;
-    
-}
+@import 'core/reset';
+@import 'layout/App';
+
 @font-face {
     font-family: 'harry';
     src: url('../fonts/harryp__-webfont.woff2') format('woff2'),
@@ -10,6 +8,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 @-webkit-keyframes fa-spin {
     0% {
         -webkit-transform: rotate(0deg);
@@ -37,7 +36,7 @@
 body {
     margin: 0;
     box-sizing: border-box;
-    cursor: url('../images/cursor.png'), auto;
+    
     
 }
 
@@ -49,8 +48,7 @@ ul {
 }
 
 .page {
-    padding: 1rem;
-    background: 0
+    background-image: linear-gradient(to bottom, rgb(1, 5, 36), rgb(0, 0, 0))
 }
 
 .page * {

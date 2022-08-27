@@ -9,6 +9,8 @@ import getDataApi from '../services/dataAPI';
 import ls from '../services/localStoraged';
 import photoDefault from '../images/photoDefault.jpeg';
 import React from "react";
+import { Route, Routes } from 'react-router';
+import { matchPath, useLocation } from 'react-router';
 
 import MouseParticles from "react-mouse-particles";
 
@@ -45,21 +47,31 @@ function App() {
     return listHouses.indexOf(house) === index;
   })
 
-  
+  const listSpecies = dataCharacters.map((characters)=> characters.species);
+  const species = listSpecies.filter((specie, index) => {
+    return listSpecies.indexOf(specie) === index;
+  })
+  console.log(species);
+
+  const {pathname} = useLocation();
+  const dataPath = matchPath('/characterdetail/:id', pathname);
+  const characterId = dataPath !== null ? dataPath.params.id : null;
+  const characterFound = dataCharacters.find((character) => character.id === characterId);
 
   
   return (
-  <div>
-    <MouseParticles
-          g={3}
-          color="random"
-          cull="MuiSvgIcon-root,MuiButton-root"
-          level={9}
-        />
+  <div className='page'>
+    
     <Header />
-    <Filter dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} houses={houses} />
-    <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} />
+    <Routes>
+        <Route path="/" element={<> <Filter dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} houses={houses} />
+    <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} /></>
+        } />
+        <Route path='/characterdetail/:id' element={<CharacterDetails data={characterFound} species={species} />} />
+      </Routes>
+   
     <Footer />
+    <MouseParticles g={1} color="random" cull="col,image-wrapper"/>
 
   </div>);
 }

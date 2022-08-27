@@ -14,7 +14,10 @@ function CharacterList (props) {
        
     })
     .filter((character) => {
-        return (character.name.toLowerCase().includes(props.filterName.toLowerCase()));
+        if (props.filterName !== ''){
+            return (character.name.toLowerCase().includes(props.filterName));
+        }return true;
+        
     })
     .map((character, index) => {
         return (

@@ -7,6 +7,7 @@ function getDataApi() {
         const result = data.map((character) => {
           return {
             name: character.name,
+            id: character.name,
             gender: character.gender,
             alternateNames: character.alternate_names,
             house: character.house,

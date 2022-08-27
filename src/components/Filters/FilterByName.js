@@ -1,8 +1,8 @@
 function FilterByName (props) {
     
     const handleFilterName = (ev) => {
-       
-        props.handleFilterByName(ev.target.value);
+        ev.preventDefault();
+        props.handleFilterByName(ev.target.value.toLowerCase());
     }
     
     return (

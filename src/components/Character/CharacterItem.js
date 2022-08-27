@@ -6,7 +6,7 @@ function CharacterItem (props) {
         props.dataCharacters.photo = photoDefault;
     }
     return (
-        <Link to={`/userdetail/${props.dataCharacters.name}`}>
+        <Link to={`/characterdetail/${props.dataCharacters.name}`}>
             <li className="card">
                     <img className="card__img"
                                 src={props.dataCharacters.photo}
