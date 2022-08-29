@@ -8,7 +8,7 @@ function Filter (props) {
         <form action="" className='form'>
             <FilterByName handleFilterByName={props.handleFilterByName} filterName={props.filterName}/>
             <FilterByHouse filterHouse={props.filterHouse} handleFilterByHouse={props.handleFilterByHouse} dataCharacters={props.dataCharacters} houses={props.houses}/>
-            <FilterByGender handleFilterByGender={props.handleFilterByGender} filterGender={props.filterGender} />
+            <FilterByGender handleFilterByGender={props.handleFilterByGender} filterGender={props.filterGender} gender={props.gender} dataCharacters={props.dataCharacters}/>
             
         </form>
     )

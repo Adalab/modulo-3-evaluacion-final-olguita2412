@@ -2,6 +2,7 @@ import CharacterItem from './CharacterItem';
 import '../../styles/layout/characterList.scss';
 
 function CharacterList (props) {
+    
     const list = props.dataCharacters
     .filter((character) => {
         if(props.filterHouse !== 'Todas'){
@@ -16,24 +17,32 @@ function CharacterList (props) {
     })
     .filter((character) => {
         if (props.filterName !== ''){
-            return (character.name.toLowerCase().includes(props.filterName));
+         return (character.name.toLowerCase().includes(props.filterName));
         }return true;
         
-    })
-    .map((character, index) => {
-        return (
-            <CharacterItem dataCharacters={character} key={index}/>
-        )
-    })
+    });
+    const renderHtml = () => {
+        if (list.length > 0){
+          return list.map((character, index) => {
+            return (
+                <CharacterItem dataCharacters={character} key={index}/>
+            );    
+        })  
+        } return (
+            <p className='textNotfound'>
+              No hay ningún personaje que coincida con la palabra "{props.filterName}".
+            </p>
+          );
+    }
+    
     
     return (
         <section>
             
                 <ul className="cards">
-                {list}
-                    
-
+                {renderHtml()}
                 </ul>
+                
         </section>
 
     );

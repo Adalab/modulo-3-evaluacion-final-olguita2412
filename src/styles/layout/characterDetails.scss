@@ -1,3 +1,5 @@
+@import '../core/variables.scss';
+
 .characterDetails {
     min-height: 50vh;
     display: flex;
@@ -6,44 +8,80 @@
     justify-content: center;
     padding-top: 20px;
     background-image: url('');
+    &__link {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        line-height: 45px;
+        position: absolute;
+        transform: translate(400px, -220px);
+        border: 2px solid $secondary_color;
+        border-radius: 50%;
+        background-color: $primary_color;
+        font-size: 25px;
+        color: $secondary_color;
+        &:hover {
+            border: 2px solid $primary_color;
+            color: $primary_color;
+            background-color: $secondary_color;
+        }
+    }
 }
 .cardDetails {
-    width: 650px;
-    display: flex;
-    flex-direction: row;
+    width: 800px;
+    height: 450px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
     align-items: center;
     gap: 40px;
-    border: 2px rgb(238, 206, 1) solid;
+    border: 2px $primary_color solid;
+    box-shadow: -1px 0 0.4em rgb(254, 254, 254);
     padding: 5px;
     &__img {
-        border: solid 2px white;
-        width: 150px;
+       grid-column: 1 / 2;
+       width: 100%;
     }
     &__texts {
+        grid-column: 2 / 3;
         display: flex;
         flex-direction: column;
         align-items: left;
         gap: 15px;
         &--title {
-            font-size: 4rem;
+            font-size: 6rem;
             font-family: 'harry';
+            text-align: center;
+            color: $primary_color;
         }
         &--description {
-            font-size: 1.7rem;
+            font-size: 1.8rem;
+            color: $secondary_color;
+            font-family:'Merriweather', serif;
         }
     }
     &__house {
-        width: 150px;
+        grid-column: 3 / 4;
         background-size: contain;
         background-repeat: no-repeat;
+        height: 100%;
+        background-position: center;
+        
     }
 }
 
-.icon {
-    background-color: white;
-}
-
-
 .gryffindor {
     background-image: url('../../images/gryffindor.png');
+}
+
+.slytherin {
+    background-image: url('../../images/slytherin.png');
+}
+
+.hufflepuff {
+    background-image: url('../../images/hufflepuff.png');
+}
+
+.ravenclaw {
+    background-image: url('../../images/ravenclaw.png');
 }

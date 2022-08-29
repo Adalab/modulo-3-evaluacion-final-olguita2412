@@ -11,7 +11,6 @@ import photoDefault from '../images/photoDefault.jpeg';
 import React from "react";
 import { Route, Routes } from 'react-router';
 import { matchPath, useLocation } from 'react-router';
-
 import MouseParticles from "react-mouse-particles";
 
 
@@ -28,6 +27,9 @@ function App() {
     })
   }, [])
 
+  
+ 
+
   const handleFilterByGender = (value) => {
     setFilterGender(value);
     
@@ -42,6 +44,8 @@ function App() {
     
   }
 
+  
+
   const listHouses = dataCharacters.map((characters)=> characters.house);
   const houses = listHouses.filter((house, index) => {
     return listHouses.indexOf(house) === index;
@@ -51,7 +55,12 @@ function App() {
   const species = listSpecies.filter((specie, index) => {
     return listSpecies.indexOf(specie) === index;
   })
-  console.log(species);
+
+  const listGender = dataCharacters.map((characters)=> characters.gender);
+  const gender = listGender.filter((gender, index) => {
+    return listGender.indexOf(gender) === index;
+  })
+  
 
   const {pathname} = useLocation();
   const dataPath = matchPath('/characterdetail/:id', pathname);
@@ -65,7 +74,7 @@ function App() {
     <Header />
     <main className='main'>
     <Routes>
-        <Route path="/" element={<> <Filter dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} houses={houses} />
+        <Route path="/" element={<> <Filter dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} houses={houses} gender={gender}/>
         <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} /></>
         } />
         <Route path='/characterdetail/:id' element={<CharacterDetails data={characterFound} species={species} />} />

@@ -21,7 +21,7 @@ function FilterByHouse (props) {
     return (
         <>
          <label htmlFor="filterHouse display-block">Filtra por casa</label>
-            <select className="form__input-text" name={props.filterHouse} id={props.filterHouse} onChange={handleFilterHouse} value={props.filterHouse}>
+            <select className="form__input-text" name={props.filterHouse} id={props.filterHouse} onChange={handleFilterHouse} value={props.filterHouse} defaultValue='Gryffindor'>
                 {listHouses}
             </select>
 
