@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.c54b2f96.css",
+    "main.js": "./static/js/main.81a8c5a4.js",
+    "static/media/ravenclaw.png": "./static/media/ravenclaw.9610bcde136dbfa89da6.png",
+    "static/media/hufflepuff.png": "./static/media/hufflepuff.f6d11a5457195a54f900.png",
+    "static/media/slytherin.png": "./static/media/slytherin.2f1ae1364423a77ea790.png",
+    "static/media/gryffindor.png": "./static/media/gryffindor.cfa0e544dd6ed5d26b51.png",
+    "static/media/logo.png": "./static/media/logo.99f6765dd9bbf40d7ca2.png",
+    "static/media/flatT.png": "./static/media/flatT.3570cc622a24e5633594.png",
+    "static/media/flatS.png": "./static/media/flatS.0cee231fdf9627dd6191.png",
+    "static/media/flatG.png": "./static/media/flatG.1c9c4bd90b2868738747.png",
+    "static/media/flatR.png": "./static/media/flatR.cd80bb876840c5cc3252.png",
+    "static/media/flatH.png": "./static/media/flatH.d867b78e08b262e8e020.png",
+    "static/media/hero.webp": "./static/media/hero.f8ce550be60acc4ed1f7.webp",
+    "static/media/harryp__-webfont.woff": "./static/media/harryp__-webfont.b8d21ec22ee389ec61c9.woff",
+    "static/media/harryp__-webfont.woff2": "./static/media/harryp__-webfont.3d91b8467e311b2c586b.woff2",
+    "static/media/photoDefault.jpeg": "./static/media/photoDefault.9c77d20dbcb442809d2b.jpeg",
+    "index.html": "./index.html",
+    "main.c54b2f96.css.map": "./static/css/main.c54b2f96.css.map",
+    "main.81a8c5a4.js.map": "./static/js/main.81a8c5a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c54b2f96.css",
+    "static/js/main.81a8c5a4.js"
+  ]
+}
