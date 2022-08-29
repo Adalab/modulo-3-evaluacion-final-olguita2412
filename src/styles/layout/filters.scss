@@ -1,7 +1,7 @@
 @import '../core/variables.scss';
 
 .form {
-    width: 100vw;
+    max-width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;

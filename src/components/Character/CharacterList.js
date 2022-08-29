@@ -42,11 +42,12 @@ function CharacterList (props) {
     
     
     return (
-        <section>
+        <section className='characterList'>
             
                 <ul className="cards">
                 {renderHtml()}
                 </ul>
+                <div className={`flat flat__${props.filterHouse.toLowerCase()}`}></div>
                 
         </section>
 
