@@ -5,6 +5,11 @@ function CharacterList (props) {
     
     const list = props.dataCharacters
     .filter((character) => {
+        if(props.filterAncestry.length !== 0){
+            return (props.filterAncestry.includes(character.ancestry));
+        } return true;
+    })
+    .filter((character) => {
         if(props.filterHouse !== 'Todas'){
             return (character.house === props.filterHouse);
         } return true;

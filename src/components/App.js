@@ -7,7 +7,6 @@ import Filter from './Filters/Filter';
 import Footer from './Footer';
 import getDataApi from '../services/dataAPI';
 import ls from '../services/localStoraged';
-import photoDefault from '../images/photoDefault.jpeg';
 import React from "react";
 import { Route, Routes } from 'react-router';
 import { matchPath, useLocation } from 'react-router';
@@ -19,17 +18,16 @@ function App() {
   const [filterGender, setFilterGender] = useState('all');
   const [filterName, setFilterName] = useState('');
   const [filterHouse, setFilterHouse] = useState('Gryffindor');
+  const [filterAncestry, setFilterAncestry] = useState([]);
+  
   
   useEffect(() => {
     getDataApi().then((result) => {
       ls.set('dataCharacters', result);
       setDataCharacters(result);
     })
-  }, [])
-
-  
+  }, []) 
  
-
   const handleFilterByGender = (value) => {
     setFilterGender(value);
     
@@ -44,6 +42,24 @@ function App() {
     
   }
 
+  const handleFilterByAncestry = (value) =>{
+    if (value !== ''){
+      if (filterAncestry.includes(value)){
+        const index = filterAncestry.indexOf(value);
+        filterAncestry.splice(index, 1);
+        return setFilterAncestry([...filterAncestry]);
+      }
+      return setFilterAncestry([...filterAncestry, value]);
+    } return setFilterAncestry('');
+    
+  }
+
+  const handleRessetButton = () =>{
+    setFilterAncestry([]);
+    setFilterHouse('Gryffindor');
+    setFilterGender('all');
+    setFilterName('');
+  }
   
 
   const listHouses = dataCharacters.map((characters)=> characters.house);
@@ -60,6 +76,15 @@ function App() {
   const gender = listGender.filter((gender, index) => {
     return listGender.indexOf(gender) === index;
   })
+
+  const listAncestry = dataCharacters.map((characters)=> characters.ancestry);
+  const ancestry = listAncestry.filter((ancestry, index) => {
+    if (ancestry !== ''){
+      return listAncestry.indexOf(ancestry) === index;
+    }  
+  })
+
+ 
   
 
   const {pathname} = useLocation();
@@ -74,8 +99,8 @@ function App() {
     <Header />
     <main className='main'>
     <Routes>
-        <Route path="/" element={<> <Filter dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} houses={houses} gender={gender}/>
-        <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} /></>
+        <Route path="/" element={<> <Filter dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} handleFilterByAncestry={handleFilterByAncestry} houses={houses} gender={gender} ancestry={ancestry} handleRessetButton={handleRessetButton}/>
+        <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} /></>
         } />
         <Route path='/characterdetail/:id' element={<CharacterDetails data={characterFound} species={species} />} />
     </Routes>

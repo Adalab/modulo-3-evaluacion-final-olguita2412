@@ -1,7 +1,62 @@
+@import '../core/variables.scss';
+
 .form {
-    max-width: 50vw;
+    width: 100vw;
     display: grid;
-    grid-template-columns: 1fr, 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
+    padding: 20px;
+    gap: 7px;
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap:7px;
+    }
+    &__label {
+    font-size: 1.2rem;
+    color: $secondary_color;
+    font-family:'Merriweather', serif;
+    }
+    &__input{
+        margin: 0.25rem;
+        padding: 0.3rem;
+        background-color: $secondary_color;
+        border: none;
+        border-radius: 0.8rem;
+        font-size: 1.4rem;
+        outline: none;
+        vertical-align: middle;
+        color: $text_secondary_color;
+        &:focus {
+            background-color: $primary_color;
+        }
+    }
+    &__button {
+        grid-column: 2 / 3;
+        margin: 0.25rem;
+        padding: 0.3rem;
+        background-color: $primary_color;
+        border: none;
+        border-radius: 1rem;
+        font-size: 1.6rem;
+        outline: none;
+        vertical-align: middle;
+        color: $text_primary_color;
+        &:focus {
+            background-color: $secondary_color;
+        }
+
+    }
+}
+
+.ancestry{
+    grid-column: 1 / 4;
+}
+
+.ancestry-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
 }
