@@ -8,7 +8,7 @@ import Footer from './Footer';
 import getDataApi from '../services/dataAPI';
 import ls from '../services/localStoraged';
 import React from "react";
-import { Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
 import MouseParticles from "react-mouse-particles";
 import Loading from './Loading';
@@ -93,7 +93,7 @@ function App() {
   const ancestry = listAncestry.filter((ancestry, index) => {
     if (ancestry !== ''){
       return listAncestry.indexOf(ancestry) === index;
-    }  
+    }
   })
 
   
