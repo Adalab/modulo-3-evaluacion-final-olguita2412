@@ -18,7 +18,7 @@ function FilterByAncestry (props) {
     
     return (
         <div className="form__container ancestry">
-            <label class="form__label" htmlFor="ancestry">Filtra por ancestro:</label>
+            <label className="form__label" htmlFor="ancestry">Filtra por ancestro:</label>
             <ul className="ancestry-list">
             {listAncestry}
             </ul>

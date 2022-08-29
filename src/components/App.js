@@ -24,7 +24,15 @@ function App() {
   useEffect(() => {
     getDataApi().then((result) => {
       ls.set('dataCharacters', result);
-      setDataCharacters(result);
+      setDataCharacters(result.sort(function (a, b) {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        return 0;
+      }));
     })
   }, []) 
  
@@ -102,7 +110,7 @@ function App() {
         <Route path="/" element={<> <Filter  dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} handleFilterByAncestry={handleFilterByAncestry} houses={houses} gender={gender} ancestry={ancestry} handleRessetButton={handleRessetButton}/>
         <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} /></>
         } />
-        <Route path='/characterdetail/:id' element={<CharacterDetails data={characterFound} species={species} />} />
+        <Route path='/characterdetail/:id' element={<CharacterDetails character={characterFound} species={species} />} />
     </Routes>
     </main>
     <Footer />

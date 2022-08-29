@@ -7,7 +7,6 @@
     align-items: center;
     justify-content: center;
     padding-top: 20px;
-    background-image: url('');
     &__link {
         height: 50px;
         width: 50px;
@@ -84,4 +83,15 @@
 
 .ravenclaw {
     background-image: url('../../images/ravenclaw.png');
+}
+
+.notFoundText {
+    margin: 50px;
+    border: 2px $primary_color solid;
+    box-shadow: -1px 0 0.4em rgb(254, 254, 254);
+    padding: 10px;
+    color: $secondary_color;
+    font-size: 1.8rem;
+    font-family:'Merriweather', serif;
+    text-align: center;
 }
