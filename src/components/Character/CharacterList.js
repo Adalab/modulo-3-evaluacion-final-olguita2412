@@ -54,4 +54,11 @@ function CharacterList (props) {
     );
 };
 
+CharacterList.defaultProps = {
+    filterGender: 'all',
+    filterHouse: 'Gryffindor',
+    filterName: '',
+    filterAncestry: '',
+}
+
 export default CharacterList;

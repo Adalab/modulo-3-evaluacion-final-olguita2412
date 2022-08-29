@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function FilterByAncestry (props) {
     const handleFilterAncestry = (ev) => {
         props.handleFilterByAncestry(ev.target.value);
@@ -7,12 +9,11 @@ function FilterByAncestry (props) {
     .map((ancestry, index)=> {
         
       return (
-           <> 
            <li key={index}>
             <label className="form__label" htmlFor={ancestry}>
             <input className="form__input" type="checkbox" name={ancestry} id={ancestry} value={ancestry} onChange={handleFilterAncestry} checked={props.filterAncestry.includes(ancestry)}/>{ancestry}</label> 
            </li>
-            </>)
+            );
        
       });
     
@@ -25,5 +26,11 @@ function FilterByAncestry (props) {
         </div>
     );
 }
+
+FilterByAncestry.propTypes = {
+    ancestry: PropTypes.array.isRequired,
+    filterAncestry: PropTypes.array.isRequired,
+    handleFilterByAncestry: PropTypes.func.isRequired,
+  };
 
 export default FilterByAncestry;

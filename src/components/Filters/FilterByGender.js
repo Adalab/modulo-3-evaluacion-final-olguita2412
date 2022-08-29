@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function FilterByGender (props) {
     
     const handleFilterByGender = (ev) => {
@@ -9,8 +11,8 @@ function FilterByGender (props) {
     return(
         <div className="form__container">
             <label htmlFor="filterGender" className="form__label">Filtra por género</label>
-            <select className="form__input" name="gender" id="gender" onChange={handleFilterByGender} value={props.filterGender} defaultValue='all'>
-                <option value="all" selected>Todos</option>
+            <select className="form__input" name="gender" id="gender" onChange={handleFilterByGender} value={props.filterGender}>
+                <option value="all">Todos</option>
                 <option value="female">Mujer</option>
                 <option value="male">Hombre </option>
             </select>
@@ -18,5 +20,10 @@ function FilterByGender (props) {
         </div>
     )
 };
+
+FilterByGender.propTypes = {
+    filterGender: PropTypes.string.isRequired,
+    handleFilterByGender: PropTypes.func.isRequired,
+  };
 
 export default FilterByGender;

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function FilterByHouse (props) {
     
     const handleFilterHouse = (ev) => {
@@ -5,27 +7,25 @@ function FilterByHouse (props) {
         props.handleFilterByHouse(ev.target.value);
     }
     
-    const listHouses = props.houses
-    .map((house, index)=> {
-        if (house === ''){
-            house = 'Todas';
-        }   
-      return (
-           <> 
-           <option value={house} key={index}>{house} </option>
-            </>)
-       
-      });
-    
     return (
         <div className="form__container">
          <label htmlFor="filterHouse" className="form__label">Filtra por casa</label>
-            <select className="form__input" name={props.filterHouse} id={props.filterHouse} onChange={handleFilterHouse} value={props.filterHouse} selected='Gryffindor'>
-                {listHouses}
+            <select className="form__input" name='houses' id='houses' onChange={handleFilterHouse} value={props.filterHouse}>
+            <option value='Gryffindor'>Gryffindor </option>
+            <option value='Hufflepuff'>Hufflepuff </option>
+            <option value='Ravenclaw'>Ravenclaw </option>
+            <option value='Slytherin'>Slytherin </option>
+            <option value='Todas'>Todas </option>
             </select>
 
         </div>
     )
 };
+
+FilterByHouse.propTypes = {
+    houses: PropTypes.array.isRequired,
+    filterHouse: PropTypes.string.isRequired,
+    handleFilterByHouse: PropTypes.func.isRequired,
+  };
 
 export default FilterByHouse;

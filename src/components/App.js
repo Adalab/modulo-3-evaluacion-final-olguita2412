@@ -11,6 +11,7 @@ import React from "react";
 import { Route, Routes } from 'react-router';
 import { matchPath, useLocation } from 'react-router';
 import MouseParticles from "react-mouse-particles";
+import Loading from './Loading';
 
 
 function App() {
@@ -19,11 +20,13 @@ function App() {
   const [filterName, setFilterName] = useState('');
   const [filterHouse, setFilterHouse] = useState('Gryffindor');
   const [filterAncestry, setFilterAncestry] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   
   
   useEffect(() => {
     getDataApi().then((result) => {
       ls.set('dataCharacters', result);
+      setIsLoading(false);
       setDataCharacters(result.sort(function (a, b) {
         if (a.name > b.name) {
           return 1;
@@ -106,6 +109,7 @@ function App() {
     
     <Header />
     <main className='main'>
+    <Loading isLoading={isLoading}/>
     <Routes>
         <Route path="/" element={<> <Filter  dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} handleFilterByAncestry={handleFilterByAncestry} houses={houses} gender={gender} ancestry={ancestry} handleRessetButton={handleRessetButton}/>
         <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} /></>
