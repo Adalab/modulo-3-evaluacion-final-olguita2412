@@ -41,6 +41,7 @@ function App() {
       setFilterHouse(value);
     
   }
+  
 
   const handleFilterByAncestry = (value) =>{
     if (value !== ''){
@@ -84,7 +85,6 @@ function App() {
     }  
   })
 
- 
   
 
   const {pathname} = useLocation();
@@ -99,7 +99,7 @@ function App() {
     <Header />
     <main className='main'>
     <Routes>
-        <Route path="/" element={<> <Filter dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} handleFilterByAncestry={handleFilterByAncestry} houses={houses} gender={gender} ancestry={ancestry} handleRessetButton={handleRessetButton}/>
+        <Route path="/" element={<> <Filter  dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} handleFilterByAncestry={handleFilterByAncestry} houses={houses} gender={gender} ancestry={ancestry} handleRessetButton={handleRessetButton}/>
         <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} /></>
         } />
         <Route path='/characterdetail/:id' element={<CharacterDetails data={characterFound} species={species} />} />

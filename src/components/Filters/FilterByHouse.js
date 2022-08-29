@@ -20,7 +20,7 @@ function FilterByHouse (props) {
     return (
         <div className="form__container">
          <label htmlFor="filterHouse" className="form__label">Filtra por casa</label>
-            <select className="form__input" name={props.filterHouse} id={props.filterHouse} onChange={handleFilterHouse} value={props.filterHouse} defaultValue='Gryffindor'>
+            <select className="form__input" name={props.filterHouse} id={props.filterHouse} onChange={handleFilterHouse} value={props.filterHouse} selected='Gryffindor'>
                 {listHouses}
             </select>
 

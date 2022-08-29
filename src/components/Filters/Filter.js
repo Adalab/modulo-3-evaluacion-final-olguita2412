@@ -6,8 +6,13 @@ import ButtonResset from "./ButtonResset";
 import '../../styles/layout/filters.scss';
 
 function Filter (props) {
+    
+    const handleForm = (ev) => {
+        ev.preventDefault();
+    }
+    
     return (
-        <form action="" className='form'>
+        <form action="" className='form'onSubmit={handleForm}>
             <FilterByHouse filterHouse={props.filterHouse} handleFilterByHouse={props.handleFilterByHouse} dataCharacters={props.dataCharacters} houses={props.houses}/>
             <FilterByName handleFilterByName={props.handleFilterByName} filterName={props.filterName}/>
             <FilterByGender handleFilterByGender={props.handleFilterByGender} filterGender={props.filterGender} gender={props.gender} dataCharacters={props.dataCharacters}/>

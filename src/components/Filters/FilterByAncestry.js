@@ -10,7 +10,7 @@ function FilterByAncestry (props) {
            <> 
            <li key={index}>
             <label className="form__label" htmlFor={ancestry}>
-            <input className="form__input" type="checkbox" name={ancestry} id={ancestry} value={ancestry} onChange={handleFilterAncestry} defaultChecked='' />{ancestry}</label> 
+            <input className="form__input" type="checkbox" name={ancestry} id={ancestry} value={ancestry} onChange={handleFilterAncestry} checked={props.filterAncestry.includes(ancestry)}/>{ancestry}</label> 
            </li>
             </>)
        
