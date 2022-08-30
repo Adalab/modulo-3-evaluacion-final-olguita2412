@@ -75,7 +75,7 @@ The reset button cleans the search inputs and show the result list with default 
 - [Visual Studio Node](https://code.visualstudio.com/download) Version: May 2022
 - [Git](https://git-scm.com/download/mac) Version: 2.36.1
 - [Node JS](https://nodejs.org/es/download/) Version: v14.19.3
-- [React Started Kit]
+- [React Started Kit]()
 - [Git Hub](https://github.com/)
 
 ---
@@ -101,7 +101,7 @@ To view the final´s result of exercise click [here](beta.adalab.es/modulo-3-eva
 
 ## Contact
 
-- Linkedin [Linkedin](https://{https://www.linkedin.com/in/olguita2412/})
+- Linkedin [@olguita2412](https://{https://www.linkedin.com/in/olguita2412/})
 - GitHub [@olguita2412](https://{github.com/olguita2412})
 - Twitter [@olguiita24](https://{twitter.com/olguiita24})
 
