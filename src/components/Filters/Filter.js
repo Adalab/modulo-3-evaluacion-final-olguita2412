@@ -15,7 +15,7 @@ function Filter (props) {
         <form action="" className='form'onSubmit={handleForm}>
             <FilterByHouse filterHouse={props.filterHouse} handleFilterByHouse={props.handleFilterByHouse} dataCharacters={props.dataCharacters} houses={props.houses}/>
             <FilterByName handleFilterByName={props.handleFilterByName} filterName={props.filterName}/>
-            <FilterByGender handleFilterByGender={props.handleFilterByGender} filterGender={props.filterGender} gender={props.gender} dataCharacters={props.dataCharacters}/>
+            <FilterByGender handleFilterByGender={props.handleFilterByGender} filterGender={props.filterGender} dataCharacters={props.dataCharacters}/>
             <FilterByAncestry handleFilterByAncestry={props.handleFilterByAncestry} filterAncestry={props.filterAncestry} ancestry={props.ancestry} />
             <ButtonResset handleRessetButton={props.handleRessetButton} />
             

@@ -15,6 +15,7 @@ import Loading from './Loading';
 
 
 function App() {
+  //Variables de estado
   const [dataCharacters, setDataCharacters] = useState(ls.get('dataCharacters', []));
   const [filterGender, setFilterGender] = useState('all');
   const [filterName, setFilterName] = useState('');
@@ -22,7 +23,7 @@ function App() {
   const [filterAncestry, setFilterAncestry] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   
-  
+  //Petición a la API (ordenamos los valores directamente)
   useEffect(() => {
     getDataApi().then((result) => {
       ls.set('dataCharacters', result);
@@ -39,9 +40,10 @@ function App() {
     })
   }, []) 
  
+
+  //Funciones manejadoras de eventos
   const handleFilterByGender = (value) => {
-    setFilterGender(value);
-    
+    setFilterGender(value); 
   }
 
   const handleFilterByName = (value) => {
@@ -49,10 +51,8 @@ function App() {
   }
 
   const handleFilterByHouse = (value) =>{
-      setFilterHouse(value);
-    
+      setFilterHouse(value); 
   }
-  
 
   const handleFilterByAncestry = (value) =>{
     if (value !== ''){
@@ -63,7 +63,6 @@ function App() {
       }
       return setFilterAncestry([...filterAncestry, value]);
     } return setFilterAncestry('');
-    
   }
 
   const handleRessetButton = () =>{
@@ -72,23 +71,20 @@ function App() {
     setFilterGender('all');
     setFilterName('');
   }
-  
 
+  //Creamos el listado de "houses" directamente desde las opciones de la API
   const listHouses = dataCharacters.map((characters)=> characters.house);
   const houses = listHouses.filter((house, index) => {
     return listHouses.indexOf(house) === index;
   })
 
+  //Creamos el listado de "species" directamente desde las opciones de la API
   const listSpecies = dataCharacters.map((characters)=> characters.species);
   const species = listSpecies.filter((specie, index) => {
     return listSpecies.indexOf(specie) === index;
   })
 
-  const listGender = dataCharacters.map((characters)=> characters.gender);
-  const gender = listGender.filter((gender, index) => {
-    return listGender.indexOf(gender) === index;
-  })
-
+  //Creamos el listado de "ancestry" directamente desde las opciones de la API
   const listAncestry = dataCharacters.map((characters)=> characters.ancestry);
   const ancestry = listAncestry.filter((ancestry, index) => {
     if (ancestry !== ''){
@@ -97,7 +93,7 @@ function App() {
   })
 
   
-
+  //Usamos el useLocation y el path para generar la ruta compatible en función del id de cada personaje
   const {pathname} = useLocation();
   const dataPath = matchPath('/characterdetail/:id', pathname);
   const characterId = dataPath !== null ? dataPath.params.id : null;
@@ -111,7 +107,7 @@ function App() {
     <main className='main'>
     <Loading isLoading={isLoading}/>
     <Routes>
-        <Route path="/" element={<> <Filter  dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} handleFilterByAncestry={handleFilterByAncestry} houses={houses} gender={gender} ancestry={ancestry} handleRessetButton={handleRessetButton}/>
+        <Route path="/" element={<> <Filter  dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} handleFilterByGender={handleFilterByGender} handleFilterByName={handleFilterByName} handleFilterByHouse={handleFilterByHouse} handleFilterByAncestry={handleFilterByAncestry} houses={houses} ancestry={ancestry} handleRessetButton={handleRessetButton}/>
         <CharacterList dataCharacters={dataCharacters} filterGender={filterGender} filterName={filterName} filterHouse={filterHouse} filterAncestry={filterAncestry} /></>
         } />
         <Route path='/characterdetail/:id' element={<CharacterDetails character={characterFound} species={species} />} />
@@ -122,5 +118,6 @@ function App() {
 
   </div>);
 }
+
 
 export default App;

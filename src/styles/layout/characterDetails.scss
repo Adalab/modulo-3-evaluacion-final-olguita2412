@@ -88,6 +88,9 @@
             font-family: 'harry';
             text-align: center;
             color: $primary_color;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
             @media all and (min-width: 768px) {
                 font-size: 4rem;
             }
@@ -100,8 +103,13 @@
             text-align: center;
             color: $secondary_color;
             font-family:'Merriweather', serif;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 280px;
             @media all and (min-width: 768px) {
                 font-size: 1.6rem;
+                width: 300px;
             }
             @media all and (min-width: 1200px) {
                 font-size: 1.8rem;
@@ -114,6 +122,7 @@
         background-size: contain;
         background-repeat: no-repeat;
         height: 100%;
+        width: 100%;
         background-position: center;
         @media all and (min-width: 768px) {
             grid-column: 3 / 4;

@@ -1,5 +1,6 @@
 import CharacterItem from './CharacterItem';
 import '../../styles/layout/characterList.scss';
+import PropTypes from 'prop-types';
 
 function CharacterList (props) {
     
@@ -60,5 +61,13 @@ CharacterList.defaultProps = {
     filterName: '',
     filterAncestry: '',
 }
+
+CharacterList.propTypes = {
+    dataCharacters: PropTypes.array.isRequired,
+    filterAncestry: PropTypes.array.isRequired,
+    filterHouse: PropTypes.string.isRequired,
+    filterName: PropTypes.string.isRequired,
+    filterGender: PropTypes.string.isRequired,
+  };
 
 export default CharacterList;
