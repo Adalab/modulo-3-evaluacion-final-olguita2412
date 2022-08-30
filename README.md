@@ -1,5 +1,7 @@
 <h1 align="center">Harry Potter's characters</h1>
 
+![](./src/images/readme.png)
+
 ---
 
 <div align="center">
