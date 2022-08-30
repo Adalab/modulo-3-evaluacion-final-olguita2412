@@ -8,7 +8,7 @@ function FilterByHouse (props) {
     }
     
     return (
-        <div className="form__container">
+        <div className="form__container house">
          <label htmlFor="filterHouse" className="form__label">Filtra por casa</label>
             <select className="form__input" name='houses' id='houses' onChange={handleFilterHouse} value={props.filterHouse}>
             <option value='Gryffindor'>Gryffindor </option>

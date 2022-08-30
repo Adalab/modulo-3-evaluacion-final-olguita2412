@@ -1,3 +1,5 @@
+
+
 function FilterByName (props) {
     
     const handleFilterName = (ev) => {
@@ -6,7 +8,7 @@ function FilterByName (props) {
     }
     
     return (
-        <div className="form__container">
+        <div className="form__container name">
         <label htmlFor="filterName" className="form__label">Filtra por nombre</label>
         <input type="text" id="filterName" onChange={handleFilterName} value={props.filterName} className="form__input"/>
     </div>
