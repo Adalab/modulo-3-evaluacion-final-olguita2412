@@ -12,7 +12,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://www.youtube.com/watch?v=Ad86H9Vgx6g&ab_channel=OlguiitaRodriguez">
+    <a href=./src/images/demo.gif>
       Demo
     </a>
     <span> | </span>
@@ -68,7 +68,7 @@ The reset button cleans the search inputs and show the result list with default 
 
 ### Demo:
 
-![Demo](./src/images/demo.png)
+![Demo](./src/images/demo.gif)
 
 ---
 
